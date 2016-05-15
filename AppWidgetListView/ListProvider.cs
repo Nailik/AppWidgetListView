@@ -1,30 +1,25 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Appwidget;
 using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 
 namespace AppWidgetListView
 {
-    public class ListProvider : RemoteViewsService.IRemoteViewsFactory
+    public class ListProvider : Java.Lang.Object, RemoteViewsService.IRemoteViewsFactory
     {
         private List<ListItem> listItemList = new List<ListItem>();
-        private Context context = null;
-        private int appWidgetId;
+        private Context context;
+       
 
-        public ListProvider(Context contextNew, Intent intentNew)
+        public ListProvider(Context contextNew) 
+
         {
             context = contextNew;
-            appWidgetId = intentNew.GetIntExtra(AppWidgetManager.ExtraAppwidgetId, AppWidgetManager.InvalidAppwidgetId);
+   
             populateListItem();
         }
+
+
 
         private void populateListItem()
         {
@@ -83,15 +78,6 @@ namespace AppWidgetListView
         }
 
 
-        //
-
-        public void Dispose()
-        {
-           // throw new NotImplementedException();
-        }
-
-        public IntPtr Handle { get; }
-        
 
        
 

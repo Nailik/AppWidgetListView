@@ -38,9 +38,9 @@ namespace AppWidgetListView
             
             Intent svcIntent = new Intent(context, typeof(WidgetService));
            
-            svcIntent.PutExtra(AppWidgetManager.ExtraAppwidgetId, appWidgetId);
+           svcIntent.PutExtra(AppWidgetManager.ExtraAppwidgetId, appWidgetId);
 
-            svcIntent.SetData(Android.Net.Uri.Parse(svcIntent.ToUri(Android.Content.IntentUriType.Scheme)));
+           svcIntent.SetData(Android.Net.Uri.Parse(svcIntent.ToUri(Android.Content.IntentUriType.AndroidAppScheme)));
 
             remoteViews.SetEmptyView(Resource.Id.listViewWidget, Resource.Id.empty_view);
 

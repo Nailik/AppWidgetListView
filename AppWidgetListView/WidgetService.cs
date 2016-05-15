@@ -18,11 +18,13 @@ namespace AppWidgetListView
     {
         public override IRemoteViewsFactory OnGetViewFactory(Intent intent)
         {
-            int appWidgetId = intent.GetIntExtra(AppWidgetManager.ExtraAppwidgetId, AppWidgetManager.InvalidAppwidgetId);
+        //    int appWidgetId = intent.GetIntExtra(AppWidgetManager.ExtraAppwidgetId, AppWidgetManager.InvalidAppwidgetId);
 
-            ListProvider lp = new ListProvider(this.ApplicationContext, intent);
+            ListProvider lp = new ListProvider(this.ApplicationContext);
 
             return lp;
         }
+
+
     }
 }
