@@ -35,9 +35,11 @@ namespace AppWidgetListView
         private RemoteViews updateWidgetListView(Context context, int appWidgetId)
         {
             RemoteViews remoteViews = new RemoteViews(context.PackageName, Resource.Layout.widget_layout);
-            
+            string PACKAGE_NAME = context.PackageName;
+
+
             Intent svcIntent = new Intent(context, typeof(WidgetService));
-           
+           svcIntent.SetPackage(PACKAGE_NAME);
            svcIntent.PutExtra(AppWidgetManager.ExtraAppwidgetId, appWidgetId);
 
            svcIntent.SetData(Android.Net.Uri.Parse(svcIntent.ToUri(Android.Content.IntentUriType.AndroidAppScheme)));
